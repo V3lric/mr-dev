@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/HelloCardboard.unity
+    guid: 145a2a45d7bc746b19cb68410368bf96
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 5c3b2b17c7003e341950a3b474ef6883
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: af3c0bf594672fe42842611702892dd1, type: 2}
