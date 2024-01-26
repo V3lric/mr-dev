@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     bool gameStart,gameWin,losegame = false;
     public GameObject winPanel;
     [SerializeField] int randInt;
-
+    [SerializeField] TMP_Text person, timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         Transform parent = transform;
         LocatePlayers(parent);
         SelectPerson();
+        
     }
 
     // Update is called once per frame
@@ -32,14 +34,21 @@ public class GameManager : MonoBehaviour
                 gameStart = true;
         }
 
-        if (gameStart)
+        if (gameStart && !losegame && !gameWin)
         {
+            timer.SetText("Time Left: " + gameTimer.ToString());
             gameTimer -= 1f * Time.deltaTime;
             if (gameTimer < 0)
                 gameWin = true;
+        }
 
-            if (gameWin)
-                winPanel.SetActive(true);
+        if (gameWin)
+        {
+            winPanel.SetActive(true);
+        }
+        else if (losegame)
+        {
+            winPanel.SetActive(true);
         }
     }
 
@@ -71,6 +80,7 @@ public class GameManager : MonoBehaviour
     }
     void SelectPerson()
     {
-        randInt = Random.Range(0,players.Count);
+        randInt = Random.Range(1,players.Count);
+        person.SetText(randInt.ToString());
     }
 }

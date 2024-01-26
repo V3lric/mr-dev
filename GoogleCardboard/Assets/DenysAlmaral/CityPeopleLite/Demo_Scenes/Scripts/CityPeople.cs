@@ -23,6 +23,10 @@ public class CityPeople : MonoBehaviour
     {
         this.id = id;
     }
+    public void OnPointerClick()
+    {
+        GameManager.instance.PlayerOnHit(id);
+    }
 
     void PlayAnyClip()
     {
