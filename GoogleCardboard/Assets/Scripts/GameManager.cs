@@ -81,6 +81,6 @@ public class GameManager : MonoBehaviour
     void SelectPerson()
     {
         randInt = Random.Range(1,players.Count);
-        person.SetText(randInt.ToString());
+        person.SetText("Target: " +randInt.ToString());
     }
 }
