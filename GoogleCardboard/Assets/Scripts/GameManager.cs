@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
     List<GameObject> players = new List<GameObject>();
     public string playerTags;
     [SerializeField] float startTimer, gameTimer;
-    bool gameStart,gameWin,losegame = false;
+    public bool gameStart,gameWin,losegame = false;
     public GameObject winPanel;
     [SerializeField] int randInt;
+    [SerializeField] int round = 0;
     [SerializeField] TMP_Text person, timer;
+    [SerializeField] string[] playerDesc;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,6 @@ public class GameManager : MonoBehaviour
         Transform parent = transform;
         LocatePlayers(parent);
         SelectPerson();
-        
     }
 
     // Update is called once per frame
@@ -29,16 +30,23 @@ public class GameManager : MonoBehaviour
     {
         if (!gameStart)
         {
+            timer.SetText(timer.text);
             startTimer -= 1f * Time.deltaTime;
-            if (startTimer < 0)
+            if (startTimer < 1)
+            {
+                timer.SetText("Begin!!");
                 gameStart = true;
+            }
         }
 
         if (gameStart && !losegame && !gameWin)
         {
-            timer.SetText("Time Left: " + gameTimer.ToString());
-            gameTimer -= 1f * Time.deltaTime;
+            gameTimer -= 1f * Time.deltaTime % 1f;
+             float roundedTimer = UnityEngine.Mathf.Round(gameTimer);
+            timer.SetText("Time Left: " + roundedTimer.ToString());
             if (gameTimer < 0)
+                losegame = true;
+            else if (round > 3)
                 gameWin = true;
         }
 
@@ -73,14 +81,20 @@ public class GameManager : MonoBehaviour
 
     public void PlayerOnHit(int id)
     {
-        if (id == randInt)
-            gameWin = true;
-        else
-            losegame = true;
+        if (gameStart && !gameWin && !losegame)
+        {
+            if (id == randInt)
+            {
+                round++;
+                SelectPerson();
+            }
+            else
+                losegame = true;
+        }
     }
     void SelectPerson()
     {
         randInt = Random.Range(1,players.Count);
-        person.SetText("Target: " +randInt.ToString());
+        person.SetText("Target: " + playerDesc[randInt]);
     }
 }

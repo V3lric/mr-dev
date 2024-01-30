@@ -61,11 +61,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\DenysAlmaral\CityPeopleLite\Demo_Scenes\Scripts\CityPeople.cs" />
+    <Compile Include="Assets\Scripts\NavMovement.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.23.0\Hello Cardboard\Scripts\GraphicsAPITextController.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.23.0\Hello Cardboard\Scripts\CardboardStartup.cs" />
     <Compile Include="Assets\Scripts\player.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.23.0\Hello Cardboard\Scripts\ObjectController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\LookAt.cs" />
     <Compile Include="Assets\Scripts\LobbyButton.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.23.0\Hello Cardboard\Scripts\VrModeController.cs" />
   </ItemGroup>
@@ -929,6 +931,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
       <Private>False</Private>
@@ -1025,6 +1031,10 @@
       <HintPath>Library\ScriptAssemblies\Google.XR.Cardboard.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1037,12 +1047,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
