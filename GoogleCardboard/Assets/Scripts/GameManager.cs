@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject winPanel;
     [SerializeField] int randInt;
     [SerializeField] int round = 0;
-    [SerializeField] TMP_Text person, timer;
+    [SerializeField] TMP_Text person, timer,wintext;
     [SerializeField] string[] playerDesc;
     // Start is called before the first frame update
     void Start()
@@ -53,10 +53,12 @@ public class GameManager : MonoBehaviour
         if (gameWin)
         {
             winPanel.SetActive(true);
+            wintext.SetText("You Win!");
         }
         else if (losegame)
         {
             winPanel.SetActive(true);
+            wintext.SetText("You Lose!");
         }
     }
 
